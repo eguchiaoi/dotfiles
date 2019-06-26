@@ -1,1 +1,3 @@
-# vim
+# .files
+.vim
+.vimrc
