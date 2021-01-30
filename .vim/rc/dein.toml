@@ -1,3 +1,5 @@
+
+# NERD tree
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -9,19 +11,24 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('md', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('sql', 'Magenta', 'none', '#ff00ff', '#151515')
-call NERDTreeHighlightFile('sol', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('go', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('md',     'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('yml',    'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('conf',   'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('json',   'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('html',   'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('styl',   'cyan',   'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('css',    'cyan',   'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('js',     'Red',    'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('sql',    'Magenta','none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('sol',    'green',  'none', 'green',   '#151515')
+call NERDTreeHighlightFile('go',     'blue',   'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('py',     'blue',   'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('cxx',    'green',  'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('hxx',    'red',    'none', '#3366FF', '#151515')
 '''
+
+# File type icons
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
@@ -33,12 +40,7 @@ let g:DevIconsDefaultFolderOpenSymbol = ''
 highlight! link NERDTreeFlags NERDTreeDir
 '''
 
-[[plugins]]
-repo = 'tomlion/vim-solidity'
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
+# Airline theme 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
@@ -55,24 +57,49 @@ set laststatus=2
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-[[plugins]]
-repo = 'w0rp/ale'
-
+# Git 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+# Fill indent with charactor
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
 let g:indentLine_char = '¦'
 '''
 
-
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
+# Size optimaizer of the vim windows (:WinResizerStartResize)
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<Leader>s'
 '''
+
+#########################################
+#           Unused plugins              #
+#########################################
+
+# # Syntax files for Solidity, the contract-oriented programming language for Ethereum.
+# [[plugins]]
+# repo = 'tomlion/vim-solidity'
+
+# # Comment 
+# [[plugins]]
+# repo = 'tomtom/tcomment_vim'
+
+# # Automatic filling of parenthesis
+# [[plugins]]
+# repo = 'cohama/lexima.vim'
+
+# # Syntax checking 
+# [[plugins]]
+# repo = 'w0rp/ale'
+
+
+
+
+
+
+
+
+

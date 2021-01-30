@@ -1,4 +1,4 @@
-if g:dein#_cache_version !=# 150 || g:dein#_init_runtimepath !=# '/Users/aoi/.vim/dein/repos/github.com/Shougo/dein.vim/,/Users/aoi/.vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim81,/usr/local/share/vim/vimfiles/after,/Users/aoi/.vim/after' | throw 'Cache loading error' | endif
+if g:dein#_cache_version !=# 150 || g:dein#_init_runtimepath !=# '/Users/aoi/.vim/dein/repos/github.com/Shougo/dein.vim/,/Users/aoi/.vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,/Users/aoi/.vim/after' | throw 'Cache loading error' | endif
 let [plugins, ftplugin] = dein#load_cache_raw(['/Users/aoi/.vimrc', '/Users/aoi/.vim/rc/dein.toml', '/Users/aoi/.vim/rc/dein_lazy.toml'])
 if empty(plugins) | throw 'Cache loading error' | endif
 let g:dein#_plugins = plugins
@@ -6,25 +6,8 @@ let g:dein#_ftplugin = ftplugin
 let g:dein#_base_path = '/Users/aoi/.vim/dein'
 let g:dein#_runtime_path = '/Users/aoi/.vim/dein/.cache/.vimrc/.dein'
 let g:dein#_cache_path = '/Users/aoi/.vim/dein/.cache/.vimrc'
-let &runtimepath = '/Users/aoi/.vim/dein/repos/github.com/Shougo/dein.vim/,/Users/aoi/.vim,/usr/local/share/vim/vimfiles,/Users/aoi/.vim/dein/.cache/.vimrc/.dein,/usr/local/share/vim/vim81,/Users/aoi/.vim/dein/.cache/.vimrc/.dein/after,/usr/local/share/vim/vimfiles/after,/Users/aoi/.vim/after'
-let g:NERDTreeLimitedSyntax = 1
-let g:NERDTreeDirArrows = 1
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-call NERDTreeHighlightFile('md', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('sql', 'Magenta', 'none', '#ff00ff', '#151515')
-call NERDTreeHighlightFile('sol', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('go', 'blue', 'none', '#3366FF', '#151515')
+let &runtimepath = '/Users/aoi/.vim/dein/repos/github.com/Shougo/dein.vim/,/Users/aoi/.vim,/usr/local/share/vim/vimfiles,/Users/aoi/.vim/dein/.cache/.vimrc/.dein,/usr/local/share/vim/vim82,/Users/aoi/.vim/dein/.cache/.vimrc/.dein/after,/usr/local/share/vim/vimfiles/after,/Users/aoi/.vim/after'
+filetype off
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
@@ -46,3 +29,24 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:winresizer_start_key = '<Leader>s'
 let g:indentLine_char = '¦'
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeDirArrows = 1
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+call NERDTreeHighlightFile('md',     'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('yml',    'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('conf',   'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('json',   'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('html',   'yellow', 'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('styl',   'cyan',   'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('css',    'cyan',   'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('js',     'Red',    'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('sql',    'Magenta','none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('sol',    'green',  'none', 'green',   '#151515')
+call NERDTreeHighlightFile('go',     'blue',   'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('py',     'blue',   'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('cxx',    'green',  'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('hxx',    'red',    'none', '#3366FF', '#151515')

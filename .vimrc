@@ -1,57 +1,69 @@
-"======================================================
-" vim基本設定
-"======================================================
-"-------------------
-" 表示設定
-"-------------------
-set number "行番号の表示
-set title "編集中ファイル名の表示
-set showmatch "括弧入力時に対応する括弧を示す
-" set list "タブ、空白、改行を可視化
-"set visualbell "ビープ音を視覚表示
-set laststatus=2 "ステータスを表示
-set ruler "カーソル位置を表示
-set guioptions-=T "ツールバーを表示しない
-"let g:indentLine_char = '¦' "インデントを表示
+
+"+++++++++++++++++++++++
+" VIM Default Settings
+"+++++++++++++++++++++++
+
+"-----------------------------
+" Read default setting file
+"-----------------------------
+" source $VIMRUNTIME/defaults.vim
+
+syntax enable
+filetype plugin indent on
 
 "-------------------
-" 文字、カーソル設定
+" Display setting
 "-------------------
-set fenc=utf-8 "文字コードを指定
-set virtualedit=onemore "カーソルを行末の一つ先まで移動可能にする
-set autoindent "自動インデント
-set smartindent "オートインデント
-set tabstop=2 "インデントをスペース2つ分に設定
-set shiftwidth=2 "自動的に入力されたインデントの空白を2つ分に設定
-set whichwrap=b,s,h,l,<,>,[,],~ "行頭、行末で行のカーソル移動を可能にする
-set backspace=indent,eol,start "バックスペースでの行移動を可能にする
-let &t_ti.="\e[2 q" "カーソルの形状を変更
-set cursorline "現在のカーソル行を強調
+set number                      " show line number 
+set title                       " show file name 
+set showmatch                   " show matching parenthesis 
+set laststatus=2                " show status
+set ruler                       " show cursor position
+set guioptions-=T               " do not show tool bar
+let g:indentLine_char = '¦'     " show indent
+
+set fenc=utf-8                  " define encoding 
+set virtualedit=onemore         " allow cursor to move one more space from the line end
+set expandtab                   " fill space instead of tab
+set autoindent                  " automatic indent
+set smartindent                 " automatic indent
+
+set tabstop=4                   " set indent as 4 spaces
+set shiftwidth=4                " set indent as 4 spaces (for auto-indent)
+
+set whichwrap=b,s,h,l,<,>,[,],~ " allow cursor to move across lines
+set backspace=indent,eol,start  " allow backspace to cross lines
+let &t_ti.="\e[2 q"             " set cursor shape
+set cursorline                  " show cursor line
 
 "-------------------
-" 検索設定 
+"  Search setting
 "-------------------
-set ignorecase "大文字、小文字の区別をしない
-set smartcase "大文字が含まれている場合は区別する
-set wrapscan "検索時に最後まで行ったら最初に戻る
-set hlsearch "検索した文字を強調
-set incsearch "インクリメンタルサーチを有効にする "===== マウス設定 =====
-"set mouse=a
-"set ttymouse=xterm2
+set ignorecase                  " do not separate captial/small letters
+set smartcase                   " separate capital/small letters if it include capital
+set wrapscan                    " go back to the top when scan all 
+set hlsearch                    " highlight the serached word 
+set incsearch                   " allow inclemental search 
 
 "-------------------
-" カラースキーマ
+"  Mouse setting
 "-------------------
-"colorscheme molokai
-"set t_Co=256
+" set mouse=a
+" set ttymouse=xterm2
 
 "-------------------
-" その他
+"  Color scheme
+"-------------------
+" colorscheme molokai
+" set t_Co=256
+
+"-------------------
+"  Other
 "-------------------
 set clipboard+=unnamed
 set encoding=utf-8
 
-" undo 永続化
+" persistent undo 
 if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
@@ -60,63 +72,71 @@ endif
 set undolevels=1000
 
 "-------------------
-" タグジャンプ
-" ホームディレクトリで
-" ctags -R -f .tags
+"  Tag jump
 "-------------------
+" In the home directory of each project : ctags -R -f .tags
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-set tags+=./.tags;
+set tags=.tags;$HOME
+set tags+=/usr/local/root/pro/.tags,/Users/aoi/SOFT/GEANT4/geant4.10.01.p03/.tags; 
 
-""""""""""""""""""""""""""""""
-" dein本体の設定
-""""""""""""""""""""""""""""""
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
 
-"dein.vimインストール時に指定したディレクトリをセット
-let s:dein_dir = expand('~/.vim/dein')
 
-"dein.vimの実体があるディレクトリをセット
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" "-------------------
+" " Dein settings 
+" "-------------------
+" 
+" " dein.vim settings {{{
+" " install dir {{{
+" let s:dein_dir = expand('~/.cache/dein')
+" let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" " }}}
+" 
+" " dein installation check {{{
+" if &runtimepath !~# '/dein.vim'
+"   if !isdirectory(s:dein_repo_dir)
+"     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+"   endif
+"   execute 'set runtimepath^=' . s:dein_repo_dir
+" endif
+" " }}}
+" 
+" " begin settings {{{
+" if dein#load_state(s:dein_dir)
+"   call dein#begin(s:dein_dir)
+" 
+"   " .toml file
+"   let s:rc_dir = expand('~/.vim')
+"   if !isdirectory(s:rc_dir)
+"     call mkdir(s:rc_dir, 'p')
+"   endif
+"   let s:toml = s:rc_dir . '/dein.toml'
+" 
+"   " read toml and cache
+"   call dein#load_toml(s:toml, {'lazy': 0})
+" 
+"   " end settings
+"   call dein#end()
+"   call dein#save_state()
+" endif
+" " }}}
+" 
+" " plugin installation check {{{
+" if dein#check_install()
+"   call dein#install()
+" endif
+" " }}}
+" 
+" " plugin remove check {{{
+" let s:removed_plugins = dein#check_clean()
+" if len(s:removed_plugins) > 0
+"   call map(s:removed_plugins, "delete(v:val, 'rf')")
+"   call dein#recache_runtimepath()
+" endif
+" " }}}
 
-" dein.vimが存在していない場合はgithubからclone
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-
-"dein.toml, dein_layz.tomlファイルのディレクトリをセット
-let s:toml_dir = expand('~/.vim/rc')
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
- "起動時に読み込むプラグイン群
-  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
-
- "遅延読み込みしたいプラグイン群
-  call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
 
 """"""""""""""""""""""""""""""
 " key bindings
@@ -131,5 +151,58 @@ nnoremap <C-k> {
 "run file
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType python nmap <buffer> <leader>r :!python %<CR>
+
+
+
+
+""""""""""""""""""""""""""""""
+" dein本体の設定
+""""""""""""""""""""""""""""""
+" dein Scripts-----------------------------
+
+if &compatible
+    set nocompatible               " Be iMproved
+endif
+
+" dein.vimインストール時に指定したディレクトリをセット
+let s:dein_dir = expand('~/.vim/dein')
+
+" dein.vimの実体があるディレクトリをセット
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vimが存在していない場合はgithubからclone
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+"dein.toml, dein_layz.tomlファイルのディレクトリをセット
+let s:toml_dir = expand('~/.vim/rc')
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+
+    "起動時に読み込むプラグイン群
+    call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+
+    "遅延読み込みしたいプラグイン群
+    call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
+
+    call dein#end()
+    call dein#save_state()
+endif
+
+" Required setting
+syntax enable
+filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+    call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
 
 

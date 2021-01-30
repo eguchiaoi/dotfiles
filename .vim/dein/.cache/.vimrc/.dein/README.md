@@ -1,124 +1,61 @@
-indentLine
-==========
+# vim-airline-themes [![Build Status](https://travis-ci.org/vim-airline/vim-airline-themes.svg?branch=master)](https://travis-ci.org/vim-airline/vim-airline-themes)
 
-This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces. For code indented with tabs I think there is no need to support it, because you can use `:set list lcs=tab:\|\ (here is a space)`.
+This is the official theme repository for [vim-airline][11]
 
-## Requirements
-This plugin takes advantage of the newly provided `conceal` feature in Vim 7.3, so this plugin will not work with lower versions of Vim.
+# Installation
 
-## Installation
-To install the plugin just put the plugin files in your `~/.vim` (Linux) or `~/vimfiles` (Windows).
+This plugin follows the standard runtime path structure, and as such it can be installed with a variety of plugin managers:
 
-If you use a plugin manager you can put the whole directory into your `~/.vim/bundle/` directory ([Pathogen][pathogen]) or add the line `Plugin 'Yggdroot/indentLine'` to your `.vimrc` ([Vundle][vundle]).
+| Plugin Manager | Install with... |
+| -------------  | ------------- |
+| [Pathogen][4]  | `git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes`<br/>Remember to run `:Helptags` to generate help tags |
+| [NeoBundle][5] | `NeoBundle 'vim-airline/vim-airline-themes'` |
+| [Vundle][6]    | `Plugin 'vim-airline/vim-airline-themes'` |
+| [Plug][7]      | `Plug 'vim-airline/vim-airline-themes'` |
+| [VAM][8]       | `call vam#ActivateAddons([ 'vim-airline-themes' ])` |
+| [Dein][9]      | `call dein#add('vim-airline/vim-airline-themes')` |
+| [minpac][10]   | `call minpac#add('vim-airline/vim-airline-themes')` |
+| manual         | copy all of the files into your `~/.vim` directory |
 
-## Customization
-To apply customization, apply the variable definitions to your `.vimrc` file.
+# Using a Theme
 
-**Change Character Color**
+Once installed, use  `:AirlineTheme <theme>` to set the theme, e.g. `:AirlineTheme simple`
 
-indentLine will overwrite 'conceal' color with grey by default. If you want to highlight conceal color with your colorscheme, disable by:
-```vim
-let g:indentLine_setColors = 0
-```
+To set in .vimrc, use `let g:airline_theme='<theme>'`, e.g. `let g:airline_theme='simple'`
 
-Or you can customize conceal color by: 
-```vim
-" Vim
-let g:indentLine_color_term = 239
+**Note:** The command `:AirlineTheme` is only available, if you have also cloned and installed the main [vim-airline][11] repository.
 
-" GVim
-let g:indentLine_color_gui = '#A4E57E'
+# Contribution Guidelines
 
-" none X terminal
-let g:indentLine_color_tty_light = 7 " (default: 4)
-let g:indentLine_color_dark = 1 " (default: 2)
+## New themes
 
-" Background (Vim, GVim)
-let g:indentLine_bgcolor_term = 202
-let g:indentLine_bgcolor_gui = '#FF5F00'
-```
+* Pull requests for new themes are welcome.  Please be sure to include a screenshot.  You can paste an image into issue [#1](https://github.com/vim-airline/vim-airline-themes/issues/1), and then editing the post to reveal the uploaded image URL.  Please don't forgot to update the documentation.
 
-**Change Indent Char**
+## Modifications to existing themes
 
-Vim and GVim
-```vim
-let g:indentLine_char = 'c'
-```
-where `'c'` can be any ASCII character. You can also use one of `¦`, `┆`, `│`, `⎸`, or `▏` to display more beautiful lines. However, these characters will only work with files whose encoding is UTF-8.
+* Themes are subjective, so if you are going to make modifications to an existing theme, please expose a configurable variable to allow users to choose how the theme will react.
 
-or
-```vim
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-```
-each indent level has a distinct character.
+# Screenshots
 
-**Change Conceal Behaviour**
+Screenshots are in the process of being migrated here.  In the meantime you can find screenshots in the existing repository's [Wiki](https://github.com/vim-airline/vim-airline/wiki/Screenshots).
 
-This plugin enables the Vim `conceal` feature which automatically hides stretches of text based on syntax highlighting. This setting will apply to all syntax items.
+# Maintenance
 
-For example, users utilizing the built in json.vim syntax file will no longer see quotation marks in their JSON files.
+If you are interested in becoming the official maintainer of this project, please contact [**@bling**][1], [**@chrisbra**][2], or [**@mhartington**][3].
 
-indentLine will overwrite your "concealcursor" and "conceallevel" with default value:
+# License
 
-```vim
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
-```
-
-You can customize these settings, but the plugin will not function if `conceallevel` is not set to 1 or 2.
-
-If you want to keep your conceal setting, put this line to your vim dotfile:
-```vim
-let g:indentLine_setConceal = 0
-```
-
-See the [VIM Reference Manual](http://vimdoc.sourceforge.net/htmldoc/version7.html#new-conceal) for more information on the `conceal` feature.
+MIT License. Copyright (c) 2013-2017 Bailey Ling & Contributors.
 
 
-**Disable by default**
-```vim
-let g:indentLine_enabled = 0
-```
-
-### Commands
-`:IndentLinesToggle` toggles lines on and off.
-
-### Font patching
-If you find all the standard unicode and ASCII characters too obtrusive, you might consider patching your font with the [indentLine-dotted-guide.eps][glyph] glyph provided.  [FontForge][fontforge] makes the process amazingly simple:
-
- 1. Download and install FontForge.
- 2. Locate and open your terminal/gVim font.
- 3. Open the font in FontForge, choose __Goto__ from the __View__ menu and select _Private Use Area_ from the drop down box.
- 4. In the private use area, locate a blank spot for the glyph. Make a note of the code, e.g. `U+E0A3`.
- 5. Double-click the selected code point to open the font drawing tool.
- 6. From the __File__ menu, select __Import...__ and locate the _indentLine-dotted-guide.eps_ file.
- 7. Once imported, choose __File__ -> __Generate Fonts__ and choose a location and file type for the new font.
-
-Once completed, your new font will contain the more subtle dotted guide and all you have to do is set that glyph to `g:indentLine_char` in your `.vimrc` file.
-
-[glyph]: glyph/indentLine-dotted-guide.eps
-[fontforge]: http://fontforge.github.io/
-
-## Self promotion
-If you think this script is helpful, follow the [GitHub repository][repository], and don't forget to vote for it on Vim.org! ([vimscript #4354][script]).
-
-[pathogen]: https://github.com/tpope/vim-pathogen
-[vundle]: https://github.com/gmarik/vundle
-[repository]: https://github.com/Yggdroot/indentLine
-[script]: http://www.vim.org/scripts/script.php?script_id=4354
-
-## Screenshots
-
-### Vertical bars
-![Screenshot](http://i.imgur.com/KVi0T.jpg)
-
-### Patched font
-![Screenshot](http://i.imgur.com/2ZA7oaZ.png)
-
-### Leading Spaces
-![Screenshot](http://i.imgur.com/tLYkb79.png)
-
-![Screenshot](http://i.imgur.com/07Atrrs.png)
-
-## License
-- MIT
+[1]: https://github.com/bling
+[2]: https://github.com/chrisbra
+[3]: https://github.com/mhartington
+[4]: https://github.com/tpope/vim-pathogen
+[5]: https://github.com/Shougo/neobundle.vim
+[6]: https://github.com/VundleVim/Vundle.vim
+[7]: https://github.com/junegunn/vim-plug
+[8]: https://github.com/MarcWeber/vim-addon-manager
+[9]: https://github.com/Shougo/dein.vim
+[10]: https://github.com/k-takata/minpac/
+[11]: https://github.com/vim-airline/vim-airline
