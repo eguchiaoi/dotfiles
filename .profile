@@ -18,5 +18,6 @@ export PATH
 
 
 ## Environment variables
+source $HOME/dotfiles/dotfilesLink.sh
 
 

@@ -48,3 +48,5 @@ Execute the bash script:
 $ . $HOME/dotfile/dotfileLink.sh
 ~~~~
 It makes symbolic links.
+
+
