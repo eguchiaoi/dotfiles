@@ -84,59 +84,6 @@ set tags+=/usr/local/root/pro/.tags,/Users/aoi/SOFT/GEANT4/geant4.10.01.p03/.tag
 
 
 
-" "-------------------
-" " Dein settings 
-" "-------------------
-" 
-" " dein.vim settings {{{
-" " install dir {{{
-" let s:dein_dir = expand('~/.cache/dein')
-" let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-" " }}}
-" 
-" " dein installation check {{{
-" if &runtimepath !~# '/dein.vim'
-"   if !isdirectory(s:dein_repo_dir)
-"     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-"   endif
-"   execute 'set runtimepath^=' . s:dein_repo_dir
-" endif
-" " }}}
-" 
-" " begin settings {{{
-" if dein#load_state(s:dein_dir)
-"   call dein#begin(s:dein_dir)
-" 
-"   " .toml file
-"   let s:rc_dir = expand('~/.vim')
-"   if !isdirectory(s:rc_dir)
-"     call mkdir(s:rc_dir, 'p')
-"   endif
-"   let s:toml = s:rc_dir . '/dein.toml'
-" 
-"   " read toml and cache
-"   call dein#load_toml(s:toml, {'lazy': 0})
-" 
-"   " end settings
-"   call dein#end()
-"   call dein#save_state()
-" endif
-" " }}}
-" 
-" " plugin installation check {{{
-" if dein#check_install()
-"   call dein#install()
-" endif
-" " }}}
-" 
-" " plugin remove check {{{
-" let s:removed_plugins = dein#check_clean()
-" if len(s:removed_plugins) > 0
-"   call map(s:removed_plugins, "delete(v:val, 'rf')")
-"   call dein#recache_runtimepath()
-" endif
-" " }}}
-
 
 """"""""""""""""""""""""""""""
 " key bindings
@@ -165,7 +112,7 @@ if &compatible
 endif
 
 " dein.vimインストール時に指定したディレクトリをセット
-let s:dein_dir = expand('~/.vim/dein')
+let s:dein_dir = expand('~/dotfiles/.vim/dein')
 
 " dein.vimの実体があるディレクトリをセット
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -179,7 +126,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 "dein.toml, dein_layz.tomlファイルのディレクトリをセット
-let s:toml_dir = expand('~/.vim/rc')
+let s:toml_dir = expand('~/dotfiles/.vim/rc')
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 

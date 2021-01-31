@@ -1,12 +1,12 @@
-if g:dein#_cache_version !=# 150 || g:dein#_init_runtimepath !=# '/Users/aoi/.vim/dein/repos/github.com/Shougo/dein.vim/,/Users/aoi/.vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,/Users/aoi/.vim/after' | throw 'Cache loading error' | endif
-let [plugins, ftplugin] = dein#load_cache_raw(['/Users/aoi/.vimrc', '/Users/aoi/.vim/rc/dein.toml', '/Users/aoi/.vim/rc/dein_lazy.toml'])
+if g:dein#_cache_version !=# 150 || g:dein#_init_runtimepath !=# '/home/eguchi/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim/,/home/eguchi/.vim,/usr/share/vim/vimfiles,/usr/share/vim/vim80,/usr/share/vim/vimfiles/after,/home/eguchi/.vim/after' | throw 'Cache loading error' | endif
+let [plugins, ftplugin] = dein#load_cache_raw(['/home/eguchi/.vimrc', '/home/eguchi/dotfiles/.vim/rc/dein.toml', '/home/eguchi/dotfiles/.vim/rc/dein_lazy.toml'])
 if empty(plugins) | throw 'Cache loading error' | endif
 let g:dein#_plugins = plugins
 let g:dein#_ftplugin = ftplugin
-let g:dein#_base_path = '/Users/aoi/.vim/dein'
-let g:dein#_runtime_path = '/Users/aoi/.vim/dein/.cache/.vimrc/.dein'
-let g:dein#_cache_path = '/Users/aoi/.vim/dein/.cache/.vimrc'
-let &runtimepath = '/Users/aoi/.vim/dein/repos/github.com/Shougo/dein.vim/,/Users/aoi/.vim,/usr/local/share/vim/vimfiles,/Users/aoi/.vim/dein/.cache/.vimrc/.dein,/usr/local/share/vim/vim82,/Users/aoi/.vim/dein/.cache/.vimrc/.dein/after,/usr/local/share/vim/vimfiles/after,/Users/aoi/.vim/after'
+let g:dein#_base_path = '/home/eguchi/dotfiles/.vim/dein'
+let g:dein#_runtime_path = '/home/eguchi/dotfiles/.vim/dein/.cache/.vimrc/.dein'
+let g:dein#_cache_path = '/home/eguchi/dotfiles/.vim/dein/.cache/.vimrc'
+let &runtimepath = '/home/eguchi/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim/,/home/eguchi/.vim,/usr/share/vim/vimfiles,/home/eguchi/dotfiles/.vim/dein/.cache/.vimrc/.dein,/usr/share/vim/vim80,/home/eguchi/dotfiles/.vim/dein/.cache/.vimrc/.dein/after,/usr/share/vim/vimfiles/after,/home/eguchi/.vim/after'
 filetype off
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1

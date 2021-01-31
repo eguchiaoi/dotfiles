@@ -1,4 +1,6 @@
-au BufNewFile,BufRead *.sol setf solidity
+autocmd BufReadPost *.fugitiveblame setfiletype fugitiveblame
+" Go dep and Rust use several TOML config files that are not named with .toml.
+autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config,*/.cargo/credentials,Pipfile setf toml
 " vint: -ProhibitAutocmdWithNoGroup
 
 " don't spam the user when Vim is started in Vi compatibility mode
@@ -9,6 +11,7 @@ set cpo&vim
 au BufRead,BufNewFile *.go setfiletype go
 au BufRead,BufNewFile *.s setfiletype asm
 au BufRead,BufNewFile *.tmpl setfiletype gohtmltmpl
+au BufRead,BufNewFile go.sum set filetype=gosum
 
 " remove the autocommands for modsim3, and lprolog files so that their
 " highlight groups, syntax, etc. will not be loaded. *.MOD is included, so
@@ -39,6 +42,3 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " vim: sw=2 ts=2 et
-autocmd BufReadPost *.fugitiveblame setfiletype fugitiveblame
-" Go dep and Rust use several TOML config files that are not named with .toml.
-autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config,*/.cargo/credentials,Pipfile setf toml

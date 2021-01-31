@@ -1,5 +1,5 @@
 
-.vim/dein/repos/*
+# .vim/dein/repos/*
 .vim/dein/.cache/*
 
 
