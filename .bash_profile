@@ -1,12 +1,12 @@
 
 
 # auto reload
-if [ -f .bashrc ] ; then
-. .bashrc
+if [ -f $HOME/dotfiles/.bashrc ] ; then
+. $HOME/dotfiles/.bashrc
 fi
 
 # auto reload
-if [ -f .profile ] ; then
-. .profile
+if [ -f $HOME/dotfiles/.profile ] ; then
+. $HOME/dotfiles/.profile
 fi
 
