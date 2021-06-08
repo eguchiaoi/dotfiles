@@ -13,7 +13,7 @@ else
 fi
 
 export LSCOLORS=exhxhxhxhxhxhxhxhxhxhx
-alias ls='ls -G'
+alias ls='ls -G --color=auto'
 
 # terminal history
 HISTFILESIZE=10000
